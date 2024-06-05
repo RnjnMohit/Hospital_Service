@@ -12,7 +12,8 @@ module.exports = /** @type {Config} */ ({
       colors:{
         'custom-blue': '#020D2B',
         'custom-white': '#ADB1BC',
-        'custom-sky': '#8EC0EE'  
+        'custom-sky': '#8EC0EE',
+        'custom-rally-green':'#1EB980'  
       },
     },
   },
