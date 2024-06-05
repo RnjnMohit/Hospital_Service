@@ -28,7 +28,7 @@ const Footer = () => {
                 </span>
               </p>
             </div>
-            <div className='flex flex-row gap-x-7'>
+            <div className='flex flex-row gap-x-8'>
             <div className="text-white flex flex-col mt-8 ml-7 ">
               <ul className="font-bold">
                 <li>Community</li>
