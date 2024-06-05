@@ -4,6 +4,7 @@ import bg from './assets/bg3.jpeg';
 import { FaUserDoctor } from "react-icons/fa6";
 import InfoBoxes from './components/Infoboxes';
 import Home from './pages/Home';
+import Footer from './components/Footer';
 
 const textOptions = [
   {
@@ -56,6 +57,9 @@ function App() {
         <Home />
       </div>
       <div className="min-h-screen"></div>
+      <div className='w-full'>
+        <Footer />
+      </div>
     </>
   );
 }

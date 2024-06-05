@@ -7,7 +7,7 @@ const Footer = () => {
           <div className='flex flex-col gap-1'>
     
     
-          <div className="w-max flex flex-row gap-4 bg-custom-blue  mt-12 ml-7 mr-7 px-7 p-5 rounded-t-3xl">
+          <div className="w-auto flex flex-row gap-4 bg-custom-blue  mt-12 ml-7 mr-7 px-7 p-5 rounded-t-3xl">
             <div className="flex flex-col mb-6">
               <img className='w-32 h-32'
                 src="https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/hospa_logo_white.svg"
