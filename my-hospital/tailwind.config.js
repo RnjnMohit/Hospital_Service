@@ -8,7 +8,13 @@ module.exports = /** @type {Config} */ ({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        'custom-blue': '#020D2B',
+        'custom-white': '#ADB1BC',
+        'custom-sky': '#8EC0EE'  
+      },
+    },
   },
   plugins: [],
 });
