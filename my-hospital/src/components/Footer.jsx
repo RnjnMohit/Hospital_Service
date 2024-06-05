@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
             </div>
           </div>
-          <div className='bg-custom-sky ml-7 mr-4 pr-2.5 py-2 mt-0 place-content-center flex '>
+          <div className='bg-custom-sky ml-7 mr-7 pr-2.5 py-2 mt-0 place-content-center flex '>
             <p><span style={{color:'#020D2B',}}>© Hospa</span> <span style={{color:'#444F65'}}>All Rights Reserved by </span> HiBootstrap</p>
     
           </div>
