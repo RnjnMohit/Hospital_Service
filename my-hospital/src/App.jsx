@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import bg from './assets/bg3.jpeg';
 import { FaUserDoctor } from "react-icons/fa6";
 import InfoBoxes from './components/Infoboxes';
+import Home from './pages/Home';
 
 const textOptions = [
   {
@@ -52,6 +53,7 @@ function App() {
         </div>
         <Navbar />
         <InfoBoxes />
+        <Home />
       </div>
       <div className="min-h-screen"></div>
     </>
