@@ -33,7 +33,7 @@ const Footer = () => {
               <ul className="font-bold">
                 <li>Community</li>
               </ul>
-              <ul className='mt-7 flex flex-col gap-y-4'>
+              <ul className='mt-7 flex flex-col gap-y-4 text-custom-white'>
                 <li>Doctors</li>
                 <li>Testimonials</li>
                 <li>FAQs</li>
@@ -45,7 +45,7 @@ const Footer = () => {
               <ul className="font-bold">
                 <li>About</li>
               </ul>
-              <ul className='mt-7 flex flex-col gap-y-4'>
+              <ul className='mt-7 flex flex-col gap-y-4 text-custom-white'>
                 <li>Careers</li>
                 <li>Education</li>
                 <li>About Us</li>
@@ -57,7 +57,7 @@ const Footer = () => {
               <ul className="font-bold">
                 <li>Support</li>
               </ul>
-              <ul className='mt-7 flex flex-col gap-y-4'>
+              <ul className='mt-7 flex flex-col gap-y-4 text-custom-white'>
                 <li>Visitor information</li>
                 <li>Emergency Care</li>
                 <li>Donate</li>
@@ -69,7 +69,7 @@ const Footer = () => {
               <ul className="font-bold">
                 <li>Trust & Legal</li>
               </ul>
-              <ul className='mt-7 flex flex-col gap-y-4'>
+              <ul className='mt-7 flex flex-col gap-y-4 text-custom-white'>
                 <li>Terms & Conditions</li>
                 <li>Privacy Policy</li>
                 <li>Hospital Stay</li>
