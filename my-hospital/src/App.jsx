@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from "./components/Navbar";
-import bg from './assets/bg3.jpeg';
+import bg from './assets/bg5.png';
 import { FaUserDoctor } from "react-icons/fa6";
 import InfoBoxes from './components/Infoboxes';
 import Home from './pages/Home';
