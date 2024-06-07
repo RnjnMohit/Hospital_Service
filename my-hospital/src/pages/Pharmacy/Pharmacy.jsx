@@ -34,10 +34,13 @@ function Pharmacy() {
   }, []);
 
   const { title, subtitle, description } = textOptions[currentTextIndex];
-  const navigate = useNavigate();
 
+  
   const handleShopNowClick = () => {
-    window.scrollBy(0, 700)
+    window.scrollTo({
+      top: window.pageYOffset + 700,
+      behavior: 'smooth'
+    });
   };
 
   return (
