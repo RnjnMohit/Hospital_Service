@@ -9,11 +9,10 @@ function Navbar() {
         <h2 className='cursor-pointer'>Doctors</h2>
         <h2 className='cursor-pointer'>Services</h2>
         <h2 className='cursor-pointer'>About Us</h2>
-        <h2 className='curson-pointer'>Pharmacy</h2>
       </div>
       <div className='flex space-x-6 items-center'>
         <FiSearch className='text-2xl cursor-pointer' />
-        <button className='bg-emerald-600 rounded-full w-40 h-12 text-white hover:bg-blue-800 transition duration-300'>
+        <button className='bg-blue-500 rounded-full w-40 h-12 text-white hover:bg-blue-800 transition duration-300'>
           Emergency
         </button>
       </div>
