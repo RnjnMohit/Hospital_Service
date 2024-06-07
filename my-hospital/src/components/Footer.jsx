@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
     return (
@@ -7,8 +7,8 @@ const Footer = () => {
           <div className='flex flex-col '>
     
     
-          <div className="w-auto flex flex-row gap-4 bg-custom-blue  mt-12 ml-7 mr-7 px-7 p-5 rounded-t-3xl">
-            <div className="flex flex-col mb-6">
+          <div className="w-auto flex flex-row gap-x-16 bg-custom-blue  mt-10 ml-7 mr-7 px-9 p-6 rounded-t-3xl ">
+            <div className="flex flex-col mb-6 ml-16">
               <img className='w-32 h-32'
                 src="https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/hospa_logo_white.svg"
                 alt="blank"
@@ -28,7 +28,7 @@ const Footer = () => {
                 </span>
               </p>
             </div>
-            <div className='flex flex-row gap-x-8'>
+            <div className='flex flex-row gap-x-28'>
             <div className="text-white flex flex-col mt-8 ml-7 ">
               <ul className="font-bold">
                 <li>Community</li>
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
             </div>
           </div>
-          <div className='bg-custom-sky ml-7 mr-7 pr-2.5 py-2 mt-0 place-content-center flex '>
+          <div className='bg-custom-sky ml-7 mr-7 pr-2.5 py-6 mt-0 place-content-center flex '>
             <p><span style={{color:'#020D2B',}}>© Hospa</span> <span style={{color:'#444F65'}}>All Rights Reserved by </span> HiBootstrap</p>
     
           </div>
