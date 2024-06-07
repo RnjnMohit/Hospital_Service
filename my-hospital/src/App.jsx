@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from "./components/Navbar";
-import bg from './assets/bg3.jpeg';
+import bg from './assets/bg5.png';
 import { FaUserDoctor } from "react-icons/fa6";
 import InfoBoxes from './components/Infoboxes';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Appointment from './pages/Appointments/Appointment';
+import Pharmacy from './pages/Pharmacy/Pharmacy';
 
 const textOptions = [
   {
@@ -46,6 +47,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage title={title} subtitle={subtitle} description={description} />} />
           <Route path="/appointments" element={<Appointment />} />
+          <Route path='/pharmacy' element={<Pharmacy />} />
         </Routes>
         <Footer />
       </div>

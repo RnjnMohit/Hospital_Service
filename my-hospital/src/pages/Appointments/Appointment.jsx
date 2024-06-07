@@ -5,15 +5,33 @@ import Summary from './Summary';
 
 function Appointment() {
   const [currentStep, setCurrentStep] = useState('');
+  const [selectedSection, setSelectedSection] = useState('service');
+  const [userDetails, setUserDetails] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    date: '',
+    timeSlot: '',
+  });
+  const [selectedService, setSelectedService] = useState(null);
 
+  const handleDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
   const renderStep = () => {
     switch (currentStep) {
       case 'services':
         return <Services />;
       case 'basic-details':
-        return <BasicDetails />;
+        return <BasicDetails
+          userDetails={userDetails}
+          handleDetailsChange={handleDetailsChange} />;
       case 'summary':
-        return <Summary />;
+        return <Summary userDetails={userDetails} selectedService={selectedService} />;
       default:
         return <Services />;
     }
@@ -25,25 +43,26 @@ function Appointment() {
         <h1>All the headers to be passed By apurv..</h1>
       </div>
       <div className='text-center'>
-        <p className='text-blue-500 font-semibold'>APPOINTMENT BOOKING</p>
-        <h1 className='text-blue-900 font-semibold text-5xl'>
-          Please <span className='text-6xl font-bold'>Fill In</span> The Form
+        <p className='text-sky-600 font-semibold mt-12'>APPOINTMENT BOOKING</p>
+        <h1 className='text-black font-semibold text-5xl'>
+          Please <span className=' font-bold'>Fill In</span> The Form
         </h1>
       </div>
-      <div className='bg-gray-800 h-14 mt-8 w-1/4 place-content-center m-auto rounded-lg flex space-x-8 border-none'>
+      <div className='border-2 rounded-2xl border-black p-2 w-fit m-auto mt-10 flex justify-evenly'>
+
         <button
           onClick={() => setCurrentStep('services')}
-          className='text-white bg-custom-rally-green w-20 rounded-lg h-12 mt-1 hover:w-full hover:bg-blue-700'>
+          className='text-white bg-blue-500 w-20 rounded-lg h-12 mr-2 hover:bg-blue-700 focus:bg-blue-900'>
           Services
         </button>
         <button
           onClick={() => setCurrentStep('basic-details')}
-          className='text-white bg-custom-rally-green rounded-lg h-12 mt-1 hover:w-full hover:bg-blue-700'>
+          className='text-white bg-blue-500 rounded-lg h-12 mr-2 hover:bg-blue-700 p-2 focus:bg-blue-900'>
           Basic Details
         </button>
         <button
           onClick={() => setCurrentStep('summary')}
-          className='text-white bg-custom-rally-green w-20 rounded-lg h-12 mt-1 hover:w-full hover:bg-blue-700'>
+          className='text-white bg-blue-500 w-20 rounded-lg h-12 hover:bg-blue-700 focus:bg-blue-900'>
           Summary
         </button>
       </div>
@@ -53,5 +72,4 @@ function Appointment() {
     </div>
   );
 }
-
 export default Appointment;
