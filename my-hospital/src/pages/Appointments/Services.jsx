@@ -1,4 +1,3 @@
-// src/components/Service.jsx
 import React, { useState } from 'react';
 
 const services = [
