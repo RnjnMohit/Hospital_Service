@@ -5,7 +5,6 @@ import Summary from './Summary';
 
 function Appointment() {
   const [currentStep, setCurrentStep] = useState('');
-  const [selectedSection, setSelectedSection] = useState('service');
   const [userDetails, setUserDetails] = useState({
     name: '',
     email: '',
@@ -13,7 +12,7 @@ function Appointment() {
     date: '',
     timeSlot: '',
   });
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService] = useState(null);
 
   const handleDetailsChange = (e) => {
     const { name, value } = e.target;
