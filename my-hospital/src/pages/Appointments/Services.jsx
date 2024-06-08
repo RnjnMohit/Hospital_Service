@@ -6,7 +6,7 @@ const services = [
   { id: 3, category: 'Gynecology', name: 'Gynecologists', duration: '60 m', price: 'Rs 1500.00' },
 ];
 
-const Services = () => {
+const Services = ({ onSelectService }) => {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
 
   const filteredServices = selectedCategory === 'ALL'
@@ -32,7 +32,11 @@ const Services = () => {
         <h3 className="text-xl font-semibold mb-4">Select Service</h3>
         <div className="space-y-4">
           {filteredServices.map(service => (
-            <div key={service.id} className="p-4 bg-white rounded shadow border border-gray-200">
+            <div
+              key={service.id}
+              className="p-4 bg-white rounded shadow border border-gray-200 cursor-pointer hover:bg-gray-100"
+              onClick={() => onSelectService(service)}
+            >
               <div className="flex items-center">
                 <div className="mr-4">
                   <div className="w-12 h-12 bg-gray-200 rounded-full"></div>

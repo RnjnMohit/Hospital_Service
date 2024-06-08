@@ -24,6 +24,7 @@ function Appointment() {
 
   const handleServiceSelect = (service) => {
     setSelectedService(service);
+    setCurrentStep('basic-details'); // Move to next step after selecting a service
   };
 
   const handleSubmitDetails = (e) => {
@@ -72,14 +73,16 @@ function Appointment() {
           Services
         </button>
         <button
-          onClick={() => setCurrentStep('basic-details')}
-          className='text-white bg-blue-500 rounded-lg h-12 mr-2 hover:bg-blue-700 p-2 focus:bg-blue-900'
+          onClick={() => selectedService && setCurrentStep('basic-details')}
+          className={`text-white bg-blue-500 rounded-lg h-12 mr-2 hover:bg-blue-700 p-2 focus:bg-blue-900 ${!selectedService ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={!selectedService}
         >
           Basic Details
         </button>
         <button
-          onClick={() => setCurrentStep('summary')}
-          className='text-white bg-blue-500 w-20 rounded-lg h-12 hover:bg-blue-700 focus:bg-blue-900'
+          onClick={() => userDetails.name && userDetails.email && userDetails.phone && userDetails.date && userDetails.timeSlot && setCurrentStep('summary')}
+          className={`text-white bg-blue-500 w-20 rounded-lg h-12 hover:bg-blue-700 focus:bg-blue-900 ${!(userDetails.name && userDetails.email && userDetails.phone && userDetails.date && userDetails.timeSlot) ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={!(userDetails.name && userDetails.email && userDetails.phone && userDetails.date && userDetails.timeSlot)}
         >
           Summary
         </button>
