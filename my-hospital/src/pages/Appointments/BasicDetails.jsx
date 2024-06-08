@@ -1,9 +1,9 @@
 import React from 'react';
 
-const BasicDetails = ({ userDetails, handleDetailsChange }) => (
+const BasicDetails = ({ userDetails, handleDetailsChange, handleSubmit }) => (
   <div className="w-10/12 ml-32 p-5 rounded-2xl border-black border-x-2 border-y-2">
     <h2 className="text-2xl font-bold mb-4">Enter Basic Details</h2>
-    <form className="space-y-4">
+    <form className="space-y-4" onSubmit={handleSubmit}>
       <div>
         <label className="block mb-2">Name</label>
         <input
@@ -59,8 +59,11 @@ const BasicDetails = ({ userDetails, handleDetailsChange }) => (
           <option>03:00 PM - 04:00 PM</option>
         </select>
       </div>
-      <button>
-        Sumbit
+      <button
+        type="submit"
+        className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+      >
+        Submit
       </button>
     </form>
   </div>

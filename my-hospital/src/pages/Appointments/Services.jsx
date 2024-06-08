@@ -22,7 +22,7 @@ const Services = () => {
             <button
               key={category}
               className={`px-4 py-2 rounded-full ${selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-white text-black'
-                } hover:bg-blue-700 hover:text-white`}
+                } hover:bg-blue-700 hover:ease-in-out transition duration-300 hover:text-white`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
