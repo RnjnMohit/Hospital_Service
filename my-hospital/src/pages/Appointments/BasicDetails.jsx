@@ -40,7 +40,6 @@ const BasicDetails = ({ userDetails, handleDetailsChange, handleSubmit }) => (
           type="date"
           name="date"
           value={userDetails.date}
-          min={today}
           onChange={handleDetailsChange}
           className="w-full p-2 border border-gray-300 rounded focus:border-blue-900 focus:ring focus:ring-blue-200"
         />
