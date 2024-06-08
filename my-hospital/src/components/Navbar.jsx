@@ -1,9 +1,10 @@
 import React from 'react';
 import { FiSearch } from "react-icons/fi";
+import AboutUs from '../pages/AboutUs';
 
 function Navbar() {
   return (
-    <nav className='absolute top-0 left-0 right-0 flex justify-between items-center p-6 bg-transparent text-blue-950 font-bold z-10'>
+    <nav className='fixed  top-0 left-0 right-0 flex justify-between items-center p-6 bg-transparent text-blue-950 font-bold z-10'>
       <div className='flex space-x-6 text-xl'>
         <h2 className='cursor-pointer'>Home</h2>
         <h2 className='cursor-pointer'>Doctors</h2>
