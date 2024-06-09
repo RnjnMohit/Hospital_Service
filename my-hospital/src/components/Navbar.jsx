@@ -26,9 +26,9 @@ function Navbar() {
         </div>
         <div className='flex space-x-6 items-center'>
           <FiSearch className='text-3xl cursor-pointer' onClick={handleSearchClick} />
-          <button className='bg-blue-500 flex items-center justify-center rounded-full w-40 h-12 text-white hover:bg-blue-800 hover:scale-105 ease-in-out transition duration-300'>
-            <MdOutlineEmergency className='text-2xl' />
-            Emergency
+          <button className='group bg-white flex items-center justify-center rounded-full border-custom-blue w-40 h-12 border-2 hover:bg-custom-blue hover:scale-105 ease-in-out transition duration-300'>
+            <MdOutlineEmergency className='text-2xl text-custom-blue group-hover:text-white' />
+            <span className='ml-2 text-custom-blue group-hover:text-white'>Emergency</span>
           </button>
         </div>
       </nav>
