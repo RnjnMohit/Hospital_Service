@@ -17,7 +17,7 @@ const Summary = ({ userDetails, selectedService }) => (
         <div>
           <h3 className="text-xl font-semibold">Service Details</h3>
           <p>Category: {selectedService.category}</p>
-          <p>Service: {selectedService.name}</p>
+          <p>Doctor: {selectedService.doctor}</p>
           <p>Duration: {selectedService.duration}</p>
           <p>Price: {selectedService.price}</p>
         </div>
