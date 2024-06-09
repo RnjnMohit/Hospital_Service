@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import Appointment from './pages/Appointments/Appointment';
 import Pharmacy from './pages/Pharmacy/Pharmacy';
+import AboutUs from './pages/AboutUs';
 
 const textOptions = [
   {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/" element={<HomePage title={title} subtitle={subtitle} description={description} />} />
           <Route path="/appointments" element={<Appointment />} />
           <Route path='/pharmacy' element={<Pharmacy />} />
+          <Route path='/aboutus' element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>
