@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaAmbulance, FaClock } from 'react-icons/fa';
+import { FaAmbulance, FaClock, FaLongArrowAltRight } from 'react-icons/fa';
 import { MdCall } from 'react-icons/md';
 
 const AboutUs = () => {
@@ -41,10 +41,11 @@ const AboutUs = () => {
               <h2 className="text-xl font-semibold mb-2">{box.title}</h2>
             </div>
             <p className="text-gray-700 mb-4">{box.description}</p>
-            <a href="#" className="text-blue-500 hover:underline">
-              Learn More
-            </a>
-          </div>
+            <a href="#" className="group text-custom-blue hover:underline flex flex-row items-center space-x-2">
+            <FaLongArrowAltRight className='transition-transform duration-300 group-hover:translate-x-24' />
+            <span className='transition-transform duration-300 group-hover:-translate-x-6'>Learn More</span>
+          </a>
+          </div>  
         ))}
       </div>
       <div className="relative justify-between p-12 mt-11 w-3/4 ">
