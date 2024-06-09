@@ -6,7 +6,7 @@ const Summary = ({ userDetails, selectedService }) => (
     <p className="mb-4">Please review your appointment details.</p>
     <div className="space-y-4">
       <div>
-        <h3 className="text-xl font-semibold">Personal Details</h3>
+        <h3 className="text-2xl font-semibold">Personal Details</h3>
         <p>Name: {userDetails.name}</p>
         <p>Email: {userDetails.email}</p>
         <p>Phone: {userDetails.phone}</p>
@@ -15,7 +15,7 @@ const Summary = ({ userDetails, selectedService }) => (
       </div>
       {selectedService && (
         <div>
-          <h3 className="text-xl font-semibold">Service Details</h3>
+          <h3 className="text-2xl font-semibold">Service Details</h3>
           <p>Category: {selectedService.category}</p>
           <p>Doctor: {selectedService.doctor}</p>
           <p>Duration: {selectedService.duration}</p>
