@@ -25,7 +25,7 @@ function Navbar() {
           <Link to="/aboutus" className='cursor-pointer hover:scale-105 ease-in-out duration-300'>About Us</Link>
         </div>
         <div className='flex space-x-6 items-center'>
-          <FiSearch className='text-3xl cursor-pointer ' onClick={handleSearchClick} />
+          <FiSearch className='text-3xl cursor-pointer' onClick={handleSearchClick} />
           <button className='bg-blue-500 flex items-center justify-center rounded-full w-40 h-12 text-white hover:bg-blue-800 hover:scale-105 ease-in-out transition duration-300'>
             <MdOutlineEmergency className='text-2xl' />
             Emergency
