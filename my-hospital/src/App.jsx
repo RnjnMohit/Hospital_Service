@@ -70,8 +70,8 @@ function HomePage({ title, subtitle, description }) {
             <p className="text-xl ml-12 mt-6 transition-opacity duration-1000 ease-in-out">{description}</p>
           </div>
           <button onClick={() => navigate('/appointments')} className="group absolute bottom-4 left-16 bg-white border-2 border-custom-blue rounded-full flex items-center hover:bg-custom-blue hover:text-white hover:ease-in duration-500 p-3">
-            <FaUserDoctor className="mr-2 text-custom-blue group-hover:text-white group-hover:translate-x-48 duration-300 ease-in-out" />
-            <span className="text-lg font-semibold text-custom-blue group-hover:text-white group-hover:-translate-x-6 duration-300 ease-in-out">Make an Appointment</span>
+            <FaUserDoctor className="mr-2 text-custom-blue group-hover:text-white group-hover:translate-x-48 duration-700 ease-in-out" />
+            <span className="text-lg font-semibold text-custom-blue group-hover:text-white group-hover:-translate-x-6 duration-700 ease-in-out">Make an Appointment</span>
           </button>
         </div>
       </div>

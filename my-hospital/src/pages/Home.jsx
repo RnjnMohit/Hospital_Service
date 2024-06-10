@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 function Home() {
   const rollingAnimation = {
@@ -57,8 +58,9 @@ function Home() {
               <h2 className="text-3xl font-semibold  text-white">{box.title1}</h2>
               <h2 className="text-3xl font-extrabold mb-2 text-white">{box.title2}</h2>
               <p className=" mb-4 text-white text-xl">{box.description}</p>
-              <a href="#" className="text-black hover:">
-                Learn More
+              <a href="#" className="group text-custom-blue hover:underline flex flex-row items-center space-x-2">
+                <FaLongArrowAltRight className='transition-transform duration-700 group-hover:translate-x-24' />
+                <span className='transition-transform duration-700 group-hover:-translate-x-6'>Learn More</span>
               </a>
             </div>
           ))}

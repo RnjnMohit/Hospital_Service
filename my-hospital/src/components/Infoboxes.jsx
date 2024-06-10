@@ -44,8 +44,8 @@ const InfoBoxes = () => {
           <h2 className="text-xl font-semibold mb-2">{box.title}</h2>
           <p className="text-gray-700 mb-4">{box.description}</p>
           <a href="#" className="group text-custom-blue hover:underline flex flex-row items-center space-x-2">
-            <FaLongArrowAltRight className='transition-transform duration-300 group-hover:translate-x-24' />
-            <span className='transition-transform duration-300 group-hover:-translate-x-6'>Learn More</span>
+            <FaLongArrowAltRight className='transition-transform duration-700 group-hover:translate-x-24' />
+            <span className='transition-transform duration-700 group-hover:-translate-x-6'>Learn More</span>
           </a>
         </div>
       ))}
