@@ -9,6 +9,15 @@ import Footer from './components/Footer';
 import Appointment from './pages/Appointments/Appointment';
 import Pharmacy from './pages/Pharmacy/Pharmacy';
 import AboutUs from './pages/AboutUs';
+import Service from './pages/Services/Service';
+import Cardiology from './pages/Services/Cardiology';
+import Orthopedic from './pages/Services/Orthopedic';
+import Dentist from './pages/Services/Dentist';
+import Psychiatrist from './pages/Services/Psychiatrist';
+import Andrologists from './pages/Services/Andrologists';
+import Gynecologist from './pages/Services/Gynecologist';
+import Nephrology from './pages/Services/Nephrology';
+import Neurology from './pages/Services/Neurology';
 
 const textOptions = [
   {
@@ -50,6 +59,15 @@ function App() {
           <Route path="/appointments" element={<Appointment />} />
           <Route path='/pharmacy' element={<Pharmacy />} />
           <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/service' element={<Service />} />
+          <Route path='/service/cardiology' element={<Cardiology />} />
+          <Route path='/service/orthopedic' element={<Orthopedic />} />
+          <Route path='/service/dentist' element={<Dentist />} />
+          <Route path='/service/andrologists' element={<Andrologists />} />
+          <Route path='/service/gynecologist' element={<Gynecologist />} />
+          <Route path='/service/psychiatrist' element={<Psychiatrist />} />
+          <Route path='/service/nephrology' element={<Nephrology />} />
+          <Route path='/service/neurology' element={<Neurology />} />
         </Routes>
         <Footer />
       </div>

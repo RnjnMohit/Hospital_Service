@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaPrint, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, Fa
 import img from '../../assets/bg_s.jpg';
 import { FaArrowRight } from 'react-icons/fa6';
 
-function Cardiology() {
+function Neurology() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -35,7 +35,7 @@ function Cardiology() {
         <div className=" mt-32 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'bottom' }}></div>
         <div className="bg-gray-100 rounded-2xl shadow-lg px-6 pb-6 flex relative ml-10 mr-10 pt-16 -mt-20 text-xl">
           <div className="flex w-2/3">
-            <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Cardiology<span className="font-normal"></span></h1>
+            <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Neurology<span className="font-normal"></span></h1>
           </div>
           <div className="flex flex-col space-x-4 w-1/3 items-end">
             <div className="group flex space-x-4 items-center p-2 rounded-full bg-white w-fit hover:bg-green-500 hover:scale-105 ease-in-out transition duration-300">
@@ -137,12 +137,12 @@ function Cardiology() {
               <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/03/services-details.jpg'} alt="Description of the image" className="w-full h-auto object-cover rounded-3xl" />
             </div>
           </div>
-          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Cardiology</h1>
-          <div className='text-lg h-auto text-gray-500 mb-4'>Cardiology is a medical specialty focusing on diagnosing, treating, and preventing heart and blood vessel disorders. It involves managing conditions such as heart attacks, heart failure, arrhythmias, and hypertension. Cardiologists use diagnostic tests like ECGs, echocardiograms, and stress tests to evaluate heart function and guide treatment, which may include medications, lifestyle changes, or surgical interventions. The goal is to enhance heart health and improve patient outcomes.</div>
-          <div className='text-lg h-auto text-gray-500 my-4'>Preventative cardiology plays a vital role in mitigating the risk of heart disease. Cardiologists advocate for heart-healthy lifestyles, emphasizing regular exercise, balanced diets, smoking cessation, and stress management. Patient education and early intervention are crucial in preventing the progression of cardiovascular diseases.</div>
-          <div className='text-lg h-auto text-gray-500 mt-4'>Advances in cardiology, such as the development of minimally invasive techniques, new pharmacological treatments, and innovations in medical technology, continuously enhance patient care and outcomes. Research and clinical trials in cardiology are pivotal in discovering new therapies and improving existing treatments. With heart disease being a leading cause of morbidity and mortality worldwide, the field of cardiology remains indispensable in improving public health and saving lives.</div>
+          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Neurology</h1>
+          <div className='text-lg h-auto text-gray-500 mb-4'>Neurology is a medical specialty that focuses on diagnosing, treating, and managing disorders of the nervous system, which includes the brain, spinal cord, and peripheral nerves. Neurologists are trained to handle a wide array of neurological conditions that can significantly impact a person's quality of life.</div>
+          <div className='text-lg h-auto text-gray-500 my-4'>Headaches, including migraines and cluster headaches, are also common neurological issues. Neurologists diagnose the underlying causes of headaches and provide treatment plans that may include medications, stress management techniques, and lifestyle changes to alleviate pain and reduce frequency.</div>
+          <div className='text-lg h-auto text-gray-500 mt-4'>In summary, neurology is a vital field dedicated to understanding and treating the complexities of the nervous system. Neurologists play a crucial role in managing a diverse range of neurological disorders, providing comprehensive care that enhances patients' quality of life through early diagnosis, effective treatment, and ongoing management.</div>
 
-          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Doctors Under Cardiology </h1>
+          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Doctors Under Neurology </h1>
           <div className="overflow-hidden w-full max-w-5xl mx-auto">
             <div
               ref={carouselRef}
@@ -193,4 +193,4 @@ function Cardiology() {
   )
 }
 
-export default Cardiology;
+export default Neurology;

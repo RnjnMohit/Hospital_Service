@@ -62,7 +62,7 @@ function Appointment() {
   return (
     <div className="min-h-screen">
       <div className="pb-4 pt-1 bg-gradient-to-b from-gray-300 to-white">
-        <div className=" mt-28 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className=" mt-28 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: `url("https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/bg20.jpg")`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className="bg-gray-100 rounded-2xl shadow-lg px-6 pb-6 flex relative ml-10 mr-10 pt-16 -mt-28 text-xl">
           <div className="flex w-2/3">
             <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Book An <span className="font-normal">Appointment</span></h1>

@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaPrint, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, Fa
 import img from '../../assets/bg_s.jpg';
 import { FaArrowRight } from 'react-icons/fa6';
 
-function Cardiology() {
+function Psychiatrist() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -35,7 +35,7 @@ function Cardiology() {
         <div className=" mt-32 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'bottom' }}></div>
         <div className="bg-gray-100 rounded-2xl shadow-lg px-6 pb-6 flex relative ml-10 mr-10 pt-16 -mt-20 text-xl">
           <div className="flex w-2/3">
-            <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Cardiology<span className="font-normal"></span></h1>
+            <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Psychiatrist<span className="font-normal"></span></h1>
           </div>
           <div className="flex flex-col space-x-4 w-1/3 items-end">
             <div className="group flex space-x-4 items-center p-2 rounded-full bg-white w-fit hover:bg-green-500 hover:scale-105 ease-in-out transition duration-300">
@@ -128,7 +128,6 @@ function Cardiology() {
             >
               Gynecologist
             </a>
-
           </table>
         </div>
         <div className='relative  w-8/12 flex flex-col my-2 mx-6'>
@@ -137,12 +136,12 @@ function Cardiology() {
               <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/03/services-details.jpg'} alt="Description of the image" className="w-full h-auto object-cover rounded-3xl" />
             </div>
           </div>
-          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Cardiology</h1>
-          <div className='text-lg h-auto text-gray-500 mb-4'>Cardiology is a medical specialty focusing on diagnosing, treating, and preventing heart and blood vessel disorders. It involves managing conditions such as heart attacks, heart failure, arrhythmias, and hypertension. Cardiologists use diagnostic tests like ECGs, echocardiograms, and stress tests to evaluate heart function and guide treatment, which may include medications, lifestyle changes, or surgical interventions. The goal is to enhance heart health and improve patient outcomes.</div>
-          <div className='text-lg h-auto text-gray-500 my-4'>Preventative cardiology plays a vital role in mitigating the risk of heart disease. Cardiologists advocate for heart-healthy lifestyles, emphasizing regular exercise, balanced diets, smoking cessation, and stress management. Patient education and early intervention are crucial in preventing the progression of cardiovascular diseases.</div>
-          <div className='text-lg h-auto text-gray-500 mt-4'>Advances in cardiology, such as the development of minimally invasive techniques, new pharmacological treatments, and innovations in medical technology, continuously enhance patient care and outcomes. Research and clinical trials in cardiology are pivotal in discovering new therapies and improving existing treatments. With heart disease being a leading cause of morbidity and mortality worldwide, the field of cardiology remains indispensable in improving public health and saving lives.</div>
+          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Psychiatrist</h1>
+          <div className='text-lg h-auto text-gray-500 mb-4'>Psychiatry is a medical specialty dedicated to the diagnosis, treatment, and prevention of mental, emotional, and behavioral disorders. Psychiatrists are medical doctors who undergo extensive training to understand the complex interplay between psychological, biological, and social factors that contribute to mental health issues. Their role is crucial in addressing conditions such as depression, anxiety, bipolar disorder, schizophrenia, and more.</div>
+          <div className='text-lg h-auto text-gray-500 my-4'>Medications prescribed by psychiatrists can be vital in managing mental health disorders. These medications include antidepressants, antipsychotics, mood stabilizers, and anxiolytics. Psychiatrists are trained to monitor the effects of these medications, adjust dosages, and manage side effects to ensure the best possible outcome for their patients.</div>
+          <div className='text-lg h-auto text-gray-500 mt-4'>Child and adolescent psychiatry is a subspecialty focusing on the mental health of young people. These specialists address developmental, behavioral, emotional, and cognitive issues, providing early intervention to improve long-term outcomes. Geriatric psychiatry, another subspecialty, deals with the mental health of older adults, tackling issues such as dementia, depression, and anxiety in the aging population.</div>
 
-          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Doctors Under Cardiology </h1>
+          <h1 className="text-5xl font-semibold text-gray-800 pt-10 pb-4 mb-3 pl-3">Doctors Under Psychiatrist </h1>
           <div className="overflow-hidden w-full max-w-5xl mx-auto">
             <div
               ref={carouselRef}
@@ -193,4 +192,4 @@ function Cardiology() {
   )
 }
 
-export default Cardiology;
+export default Psychiatrist;

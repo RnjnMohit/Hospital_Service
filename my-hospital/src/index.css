@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 @layer utilities {
-    @keyframes rolling {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+  @keyframes rolling {
+    0% {
+      transform: translateX(0%);
     }
-    .pl-full {
-      padding-left: 0%;
+
+    100% {
+      transform: translateX(-100%);
     }
+
   }
+  .pl-full {
+    padding-left: 0%;
+  }
+}
