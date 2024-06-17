@@ -5,6 +5,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 
 function Cardiology() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [doctors, setDoctors] = useState([]);
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -27,6 +28,21 @@ function Cardiology() {
     }, 4000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const DoctorsList = async () => {
+      try{
+        const response = await fetch("http://localhost:4000/getdoctors")
+        const data = await response.json();
+        const Cardio = data.filter(doctor => doctor.department === "Cardio");
+        setDoctors(Cardio);
+        console.log(Cardio[0].firstName);
+      }catch(error){
+        console.error('Error fetching doctors', error);
+      }
+    };
+    DoctorsList();
   }, []);
 
   return (
@@ -149,42 +165,32 @@ function Cardiology() {
               className="flex transition-transform duration-500"
               style={{ width: '100%' }}
             >
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className=' w-full h-auto object-cover rounded-xl' />
+              {doctors.map((doctor, index) => (
+                <><><div key={index} className="w-1/4 flex-shrink-0 p-4">
+                  <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className=' w-full h-auto object-cover rounded-xl' />
 
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 1</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 2</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className='w-full h-auto object-cover rounded-xl' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 3</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 4</div>
-              </div>
+                  <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[0].firstName}</div>
+                </div><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className='w-full h-auto object-cover rounded-xl' />
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[1].firstName}</div>
+                  </div><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[2].firstName}</div>
+                  </div></><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className=' w-full h-auto object-cover rounded-xl' />
 
-
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className=' w-full h-auto object-cover rounded-xl' />
-
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 1</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 2</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className='w-full h-auto object-cover rounded-xl' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 3</div>
-              </div>
-              <div className="w-1/4 flex-shrink-0 p-4">
-                <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
-                <div className='text-3xl font-semibold text-center mt-6'>Dr. Doctor 4</div>
-              </div>
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[0].firstName}</div>
+                  </div><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[1].firstName}</div>
+                  </div><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className='w-full h-auto object-cover rounded-xl' />
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[3].firstName}</div>
+                  </div><div className="w-1/4 flex-shrink-0 p-4">
+                    <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
+                    <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[2].firstName}</div>
+                  </div></>
+              ))}
             </div>
           </div>
         </div>
