@@ -187,7 +187,7 @@ function Cardiology() {
                     <img src={'https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor8.jpg'} alt="" className='w-full h-auto object-cover rounded-xl' />
                     <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[3].firstName}</div>
                   </div><div className="w-1/4 flex-shrink-0 p-4">
-                    <img src={'	https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
+                    <img src={'	https://themes.hib  ootstrap.com/hospa/wp-content/uploads/2024/04/doctor9.jpg'} alt="" className='w-full h-auto object-cover rounded-xl ' />
                     <div className='text-3xl font-semibold text-center mt-6'>Dr. {doctors[2].firstName}</div>
                   </div></>
               ))}
