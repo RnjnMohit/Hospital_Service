@@ -23,3 +23,13 @@ type Patients struct {
     PhoneNumber      string    `json:"phoneNumber" bson:"phoneNumber" validate:"required,min=10,max=15"`
     Address          string    `json:"address" bson:"address" validate:"required,min=5,max=200"`
 }
+
+type Appointment struct{
+    Service         string      `json:"service" bson:"service"`
+    Name            string      `json:"name" bson:"name" validate:"required"`
+    Email           string      `json:"email" bson:"email" validate:"required, email"`
+    Phone           string      `json:"phone" bson:"phone"`
+    Date            time.Time   `json:"date" bson:"date"`
+    Slot            time.Time   `json:"slot" bson:"slot"`      
+    Expiry          time.Duration   `json:"-"`  
+}

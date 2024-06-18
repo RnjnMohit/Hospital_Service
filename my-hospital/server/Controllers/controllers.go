@@ -256,3 +256,81 @@ func GetPatientByIDHandler(w http.ResponseWriter, r *http.Request) {
     w.WriteHeader(http.StatusOK)
     w.Write(patientJSON)
 }
+
+func CreateAppointment(appointment models.Appointment) error {
+    appointmentCollection := database.GetAppointmentCollection()
+
+    filter := bson.M{"email": appointment.Email}
+    var existingAppointment models.Appointment
+
+    err := appointmentCollection.FindOne(context.TODO(), filter).Decode(&existingAppointment)
+    if err != nil && err != mongo.ErrNoDocuments {
+        return err
+    }
+    if existingAppointment.Email != "" {
+        fmt.Println("Appointment already exists for today...")
+        return errors.New("appointment already exists")
+    }
+
+    appointment.Expiry, _ = time.ParseDuration("72h")
+
+    _, err = appointmentCollection.InsertOne(context.TODO(), appointment)
+    return err
+}
+
+func CreateAppointmentHandler(w http.ResponseWriter, r *http.Request) {
+    var appointment models.Appointment
+    err := json.NewDecoder(r.Body).Decode(&appointment)
+    if err != nil {
+        http.Error(w, "Error decoding appointment", http.StatusBadRequest)
+        return
+    }
+
+    err = CreateAppointment(appointment)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    w.WriteHeader(http.StatusCreated)
+    w.Write([]byte("Appointment Created Successfully.."))
+}
+
+
+func GetAppointmentHandler(w http.ResponseWriter, r *http.Request){
+    if r.Method != http.MethodGet{
+        http.Error(w, "Invalid request method", http.StatusBadRequest)
+        return
+    }
+
+    appointmentCollection := database.GetAppointmentCollection()
+
+    cursor, err := appointmentCollection.Find(context.TODO(), bson.M{})
+    if err != nil{
+        http.Error(w, "Error creating appointment", http.StatusInternalServerError)
+        return
+    }
+
+    defer cursor.Close(context.TODO())
+
+    var appointments []models.Appointment
+    for cursor.Next(context.Background()){
+        var appointment models.Appointment
+        if err := cursor.Decode(&appointment); err!=nil{
+            http.Error(w, "Error decoding Appointments...", http.StatusInternalServerError)
+            return
+        }
+        appointments = append(appointments, appointment)
+    }
+    fmt.Println("Total appointments", len(appointments))
+
+    appointmentJSON, err := json.Marshal(appointments)
+    if err != nil{
+        http.Error(w, "Error encoding appointment json", http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    w.WriteHeader(http.StatusOK)
+    w.Write(appointmentJSON)
+}

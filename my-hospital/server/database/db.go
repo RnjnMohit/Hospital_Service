@@ -14,6 +14,7 @@ import (
 var(
 	doctorCollection *mongo.Collection
 	patientCollection *mongo.Collection
+	appointmentCollection 	*mongo.Collection
 )
 
 func init() {
@@ -25,7 +26,7 @@ func init() {
 	connectionString := os.Getenv("MONGODB_URL")
 
 	if connectionString == ""{
-		log.Fatalf("MONGODB_URL not sen in .env file")
+		log.Fatalf("MONGODB_URL not seen in .env file")
 	}
 
 	clientOptions := options.Client().ApplyURI(connectionString)
@@ -43,6 +44,7 @@ func init() {
 	//setup collection
 	doctorCollection = client.Database("Hospital").Collection("Doctor")
 	patientCollection = client.Database("Hospital").Collection("Patient")
+	appointmentCollection = client.Database("Hospital").Collection("Appointment")
 }
 
 //get doctor db coll
@@ -53,4 +55,8 @@ func GetDoctorCollection() *mongo.Collection{
 // GetPatientCollection returns the patient collection
 func GetPatientCollection() *mongo.Collection {
 	return patientCollection
+}
+
+func GetAppointmentCollection() *mongo.Collection{
+	return appointmentCollection
 }
