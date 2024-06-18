@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Services from './Services';
 import BasicDetails from './BasicDetails';
 import Summary from './Summary';
@@ -33,9 +33,39 @@ function Appointment() {
   const handleSubmitDetails = (e) => {
     e.preventDefault();
     console.log(userDetails);
-    setCurrentStep('summary');
+    // setCurrentStep('summary');
   };
 
+  const appointmentDetails = {...userDetails, service: selectedService};
+
+  useEffect(() => {
+
+    fetch("http://localhost:4000/createappointments", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(appointmentDetails),
+    })
+    .then(response => {
+      console.log(response.status);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Handle success response
+      console.log('Appointment created successfully:', data);
+      setCurrentStep('summary');
+    })
+    .catch(error => {
+      // Handle error
+      console.error('Error creating appointment:', error);
+    });
+  }, []);
+  
+  
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
