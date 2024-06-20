@@ -18,6 +18,7 @@ import Andrologists from './pages/Services/Andrologists';
 import Gynecologist from './pages/Services/Gynecologist';
 import Nephrology from './pages/Services/Nephrology';
 import Neurology from './pages/Services/Neurology';
+import Cart from './pages/Pharmacy/cart';
 
 const textOptions = [
   {
@@ -68,6 +69,7 @@ function App() {
           <Route path='/service/psychiatrist' element={<Psychiatrist />} />
           <Route path='/service/nephrology' element={<Nephrology />} />
           <Route path='/service/neurology' element={<Neurology />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
         <Footer />
       </div>

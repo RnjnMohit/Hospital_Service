@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TbShoppingBag } from "react-icons/tb";
-import bg from '../../assets/bg2_pharm.jpg';
+import bg from '../../assets/bg4_pharm.jpg';
 import PharmacyProducts from './pharmacyProducts';
 
 const textOptions = [
