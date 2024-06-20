@@ -1,7 +1,9 @@
 package models
 
 import (
-    "time"
+	"time"
+
+	"golang.org/x/text/number"
 )
 
 // Doctor represents the structure for doctor details
@@ -32,4 +34,9 @@ type Appointment struct{
     Date            time.Time   `json:"date" bson:"date"`
     Slot            time.Time   `json:"slot" bson:"slot"`      
     Expiry          time.Duration   `json:"-"`  
+}
+
+type Products struct{
+    Name            string      `json:"name" bson:"name" validate:"required"`
+    Price           string      `json:"price" bson:"price" validate:"required"`
 }

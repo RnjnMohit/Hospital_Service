@@ -307,7 +307,7 @@ func GetAppointmentHandler(w http.ResponseWriter, r *http.Request){
 
     cursor, err := appointmentCollection.Find(context.TODO(), bson.M{})
     if err != nil{
-        http.Error(w, "Error creating appointment", http.StatusInternalServerError)
+        http.Error(w, "Error Getting appointment", http.StatusInternalServerError)
         return
     }
 
@@ -333,4 +333,90 @@ func GetAppointmentHandler(w http.ResponseWriter, r *http.Request){
     w.Header().Set("Content-Type", "application/json")
     w.WriteHeader(http.StatusOK)
     w.Write(appointmentJSON)
+}
+
+func CreateProductsHandler(w http.ResponseWriter, r *http.Request){
+
+    if r.Method != http.MethodPost{
+        http.Error(w, "Invalid request method", http.StatusBadRequest)
+        return
+    }
+    var product models.Products
+
+    if err := json.NewDecoder(r.Body).Decode(&product); err != nil{
+        http.Error(w, err.Error(), http.StatusBadRequest)
+        return
+    }
+
+    productCollection := database.GetProductCollection()
+    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+    defer cancel()
+
+    _, err := productCollection.InsertOne(ctx, product)
+    if err != nil{
+        http.Error(w, "Error creating product", http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    w.WriteHeader(http.StatusCreated)
+    w.Write([]byte("Product Created Successfully"))
+    
+}
+
+package handlers
+
+import (
+    "context"
+    "encoding/json"
+    "fmt"
+    "net/http"
+
+    "go.mongodb.org/mongo-driver/bson"
+    "your_project/database"
+    "your_project/models"
+)
+
+func GetProductHandler(w http.ResponseWriter, r *http.Request) {
+    if r.Method != http.MethodGet {
+        http.Error(w, "Invalid request method", http.StatusBadRequest)
+        return
+    }
+
+    productCollection := database.GetProductCollection()
+
+    cursor, err := productCollection.Find(context.TODO(), bson.M{})
+    if err != nil {
+        http.Error(w, "Error fetching products", http.StatusInternalServerError)
+        return
+    }
+    defer cursor.Close(context.TODO())
+
+    var products []models.Product
+
+    for cursor.Next(context.Background()) {
+        var product models.Product
+        if err := cursor.Decode(&product); err != nil {
+            http.Error(w, "Error decoding products", http.StatusInternalServerError)
+            return
+        }
+        products = append(products, product)
+    }
+
+    if err := cursor.Err(); err != nil {
+        http.Error(w, "Cursor error", http.StatusInternalServerError)
+        return
+    }
+
+    fmt.Println("Total Products: ", len(products))
+
+    productJSON, err := json.Marshal(products)
+    if err != nil {
+        http.Error(w, "Error marshaling products", http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    w.WriteHeader(http.StatusOK)
+    w.Write(productJSON)
 }

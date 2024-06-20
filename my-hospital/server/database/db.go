@@ -15,6 +15,7 @@ var(
 	doctorCollection *mongo.Collection
 	patientCollection *mongo.Collection
 	appointmentCollection 	*mongo.Collection
+	productCollection		*mongo.Collection
 )
 
 func init() {
@@ -45,6 +46,7 @@ func init() {
 	doctorCollection = client.Database("Hospital").Collection("Doctor")
 	patientCollection = client.Database("Hospital").Collection("Patient")
 	appointmentCollection = client.Database("Hospital").Collection("Appointment")
+	productCollection = client.Database("Hospital").Collection("Product")
 }
 
 //get doctor db coll
@@ -59,4 +61,8 @@ func GetPatientCollection() *mongo.Collection {
 
 func GetAppointmentCollection() *mongo.Collection{
 	return appointmentCollection
+}
+
+func GetProductCollection() *mongo.Collection{
+	return productCollection
 }
