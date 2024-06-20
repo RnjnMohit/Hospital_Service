@@ -1,55 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import thermoImage from './thermo.jpg';
 import mask from '../../assets/pharmacybg_files/mask.jpg';
 import ashw from  '../../assets/pharmacybg_files/ashw.jpg';
 import dettol from '../../assets/pharmacybg_files/dettol.jpg';
 
-const products = [
-  {
-    id: 1,
-    name: 'Thermometer',
-    price: '$10.00',
-    image: thermoImage,
-  },
-  {
-    id: 2,
-    name: 'Mask',
-    price: '$20.00',
-    image: mask
-  },
-  { 
-    id: 3,
-    name: 'Ashwagandha',
-    price: '$30.00',
-    image: ashw,
-  },
-  {
-    id: 4,
-    name: 'Dettol',
-    price: '$40.00',
-    image: dettol,
-  },
-  {
-    id: 4,
-    name: 'Dettol',
-    price: '$40.00',
-    image: dettol,
-  },
-  {
-    id: 4,
-    name: 'Dettol',
-    price: '$40.00',
-    image: dettol,
-  },
-  {
-    id: 4,
-    name: 'Dettol',
-    price: '$40.00',
-    image: dettol,
-  },
-];
+const placeholderImages = {
+  Thermometer: thermoImage,
+  Mask: mask,
+  Ashwagandha: ashw,
+  Dettol: dettol,
+};
+
 
 function PharmacyProducts() {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try{
+        const response = await fetch("http://localhost:4000/getproducts");
+        const data = await response.json();
+
+        const productWithImages = data.map(product => ({
+          ...product,
+          image: placeholderImages[product.name] || product.image,
+        }));
+
+        setProducts(productWithImages);
+        
+      }catch(error){
+        console.error('Error fetching Products',error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <>
     <h1 className='mt-20 text-custom-blue ml-28 text-4xl'>Most Popular Products...</h1>

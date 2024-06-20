@@ -13,6 +13,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -341,7 +342,7 @@ func CreateProductsHandler(w http.ResponseWriter, r *http.Request){
         http.Error(w, "Invalid request method", http.StatusBadRequest)
         return
     }
-    var product models.Products
+    var product models.Product
 
     if err := json.NewDecoder(r.Body).Decode(&product); err != nil{
         http.Error(w, err.Error(), http.StatusBadRequest)
@@ -363,20 +364,6 @@ func CreateProductsHandler(w http.ResponseWriter, r *http.Request){
     w.Write([]byte("Product Created Successfully"))
     
 }
-
-package handlers
-
-import (
-    "context"
-    "encoding/json"
-    "fmt"
-    "net/http"
-
-    "go.mongodb.org/mongo-driver/bson"
-    "your_project/database"
-    "your_project/models"
-)
-
 func GetProductHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method != http.MethodGet {
         http.Error(w, "Invalid request method", http.StatusBadRequest)
@@ -419,4 +406,37 @@ func GetProductHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
     w.WriteHeader(http.StatusOK)
     w.Write(productJSON)
+}
+
+func DeleteProductHandler(w http.ResponseWriter, r *http.Request){
+    if r.Method != http.MethodDelete {
+        http.Error(w, "Invalid request method", http.StatusBadRequest)
+        return
+    }
+
+    id := mux.Vars(r)["id"]
+
+    objID, err := primitive.ObjectIDFromHex(id)
+    if err != nil{
+        http.Error(w, "Invalid ID Format", http.StatusBadRequest)
+        return
+    }
+    filter := bson.M{"_id":objID}
+
+    productColl := database.GetProductCollection()
+    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+    defer cancel()
+
+    result, err := productColl.DeleteOne(ctx, filter)
+    if err!=nil{
+        http.Error(w, "Error deleting product", http.StatusInternalServerError)
+        return
+    }
+
+    if result.DeletedCount == 0 {
+        http.Error(w, "No product Found", http.StatusNotFound)
+        return
+    }
+
+    w.WriteHeader(http.StatusNoContent)
 }

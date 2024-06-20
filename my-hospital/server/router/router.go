@@ -14,5 +14,8 @@ func SetupRoutes(r *mux.Router) *mux.Router {
     r.HandleFunc("/getpatient/{id}", Controllers.GetPatientByIDHandler).Methods("GET")
     r.HandleFunc("/createappointments", Controllers.CreateAppointmentHandler).Methods("POST")
     r.HandleFunc("/getappointments", Controllers.GetAppointmentHandler).Methods("GET")
+    r.HandleFunc("/createproducts", Controllers.CreateProductsHandler).Methods("POST")
+    r.HandleFunc("/getproducts", Controllers.GetProductHandler).Methods("GET")
+    r.HandleFunc("/deleteproduct/{id}", Controllers.DeleteProductHandler).Methods("DELETE")
     return r
 }
