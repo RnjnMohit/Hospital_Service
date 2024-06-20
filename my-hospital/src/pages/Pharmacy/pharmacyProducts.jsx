@@ -80,6 +80,7 @@ const products = [
 
 
 function PharmacyProducts() {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
