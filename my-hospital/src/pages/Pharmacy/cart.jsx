@@ -99,8 +99,9 @@ function Cart() {
                     </tbody>
                 </table>
                 <div className="mt-4">
-                    <span className=" font-bold flex justify-center text-2xl">Total: Rs. {totalPrice.toFixed(2)}</span>
+                    <span className=" font-bold  text-2xl">Total: Rs. {totalPrice.toFixed(2)}</span>
                 </div>
+                <button className="w-full mt-6 "><span className="px-4 py-2 font-bold text-2xl bg-blue-500 text-white transform duration-500 rounded-3xl hover:bg-blue-700">Proceed to Checkout</span></button>
             </div>
         </>
     )
