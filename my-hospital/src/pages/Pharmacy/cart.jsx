@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaPrint, FaPhoneAlt, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import mask from '../../assets/pharmacybg_files/mask.jpg';
 import dettol from '../../assets/pharmacybg_files/dettol.jpg';
@@ -24,6 +25,10 @@ function Cart() {
     const handleRemove = (id) => {
         setCart(cart.filter(item => item.id !== id));
     };
+
+    const navigate = useNavigate();
+
+    
 
     const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -101,7 +106,13 @@ function Cart() {
                 <div className="mt-4">
                     <span className=" font-bold  text-2xl">Total: Rs. {totalPrice.toFixed(2)}</span>
                 </div>
-                <button className="w-full mt-6 "><span className="px-4 py-2 font-bold text-2xl bg-blue-500 text-white transform duration-500 rounded-3xl hover:bg-blue-700">Proceed to Checkout</span></button>
+                <button
+                    onClick={() => 
+                        navigate('/checkout')
+                    }
+                    className="w-full mt-6 ">
+                    <span className="px-4 py-2 font-bold text-2xl bg-blue-500 text-white transform duration-500 rounded-3xl hover:bg-blue-700">Proceed to Checkout</span>
+                </button>
             </div>
         </>
     )
