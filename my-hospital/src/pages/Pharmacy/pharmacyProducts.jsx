@@ -13,71 +13,18 @@ import oxi from '../../assets/pharmacybg_files/oxi.jpg';
 import { FaArrowCircleRight } from 'react-icons/fa';
 
 
-
-
-const products = [
-  {
-    id: 1,
-    name: 'Thermometer',
-    price: 'Rs 50.00',
-    image: thermoImage,
-  },
-  {
-    id: 2,
-    name: 'Mask',
-    price: 'Rs 30.00',
-    image: mask
-  },
-  {
-    id: 3,
-    name: 'Ashwagandha',
-    price: 'Rs 65.00',
-    image: ashw,
-  },
-  {
-    id: 4,
-    name: 'Dettol',
-    price: 'Rs 180.00',
-    image: dettol,
-  },
-  {
-    id: 5,
-    name: 'Pregancy News',
-    price: 'Rs 80.00',
-    image: preg,
-  },
-  {
-    id: 6,
-    name: 'Sanitizer',
-    price: 'Rs 120.00',
-    image: sani,
-  },
-  {
-    id: 7,
-    name: 'Stethoscope',
-    price: 'Rs 350.00',
-    image: steth,
-  },
-  {
-    id: 8,
-    name: 'Medigrip',
-    price: 'Rs 150.00',
-    image: grip,
-  },
-  {
-    id: 9,
-    name: 'Equipment',
-    price: 'Rs 400.00',
-    image: equi,
-  },
-  {
-    id: 10,
-    name: 'Oximeter',
-    price: 'Rs 300.00',
-    image: oxi,
-  },
-];
-
+const placeholderImages = {
+  'Thermometer': thermoImage,
+  'Mask': mask,
+  'Ashwagandha': ashw,
+  'Dettol': dettol,
+  'Pregnancy News': preg,
+  'Sanitizer': sani,
+  'Stethoscope': steth,
+  'Medigrip': grip,
+  'Equipment': equi,
+  'Oximeter': oxi,
+}
 
 function PharmacyProducts() {
   const [products, setProducts] = useState([]);

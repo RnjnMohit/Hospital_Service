@@ -38,3 +38,7 @@ type Product struct{
     Name            string      `json:"name" bson:"name" validate:"required"`
     Price           string      `json:"price" bson:"price" validate:"required"`
 }
+
+type Cart struct{
+    
+}
