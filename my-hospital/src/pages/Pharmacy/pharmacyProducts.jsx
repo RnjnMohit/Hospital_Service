@@ -90,7 +90,6 @@ function PharmacyProducts() {
                 <p className="text-3xl font-semibold text-center py-2 text-violet-900">{product.price}</p>
                 <button className='hidden group-hover:block   mx-6 mb-2 mt-3 py-3 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500'>
                   <div className='flex justify-center'>
-
                     <FaArrowCircleRight className='py-2 pr-2 text-4xl'></FaArrowCircleRight> <span className='text-center '>Add to cart</span>
                   </div>
                 </button>

@@ -2,6 +2,8 @@ package models
 
 import (
 	"time"
+
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 // Doctor represents the structure for doctor details
@@ -39,6 +41,9 @@ type Product struct{
     Price           string      `json:"price" bson:"price" validate:"required"`
 }
 
-type Cart struct{
-    
+type Cart struct {
+	PatientID primitive.ObjectID `json:"patientId" bson:"patientId" validate:"required"`
+	Products  []Product          `json:"products" bson:"products"`
+	Quantity  string             `json:"quantity" bson:"quantity" validate:"required,min=1"`
+	Subtotal  string             `json:"subtotal" bson:"subtotal" validate:"required"`
 }
