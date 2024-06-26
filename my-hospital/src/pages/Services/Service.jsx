@@ -24,6 +24,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:translate-x-3 hover:translate-y-3",
+      border: "hover:border-r-8 hover:border-b-8",
     },
     {
       title: "Cardiology",
@@ -33,6 +34,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:translate-x-3 hover:translate-y-3",
+      border: "hover:border-r-8 hover:border-b-8",
     },
     {
       title: "Neurology",
@@ -42,7 +44,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:-translate-x-3 hover:translate-y-3",
-
+      border: "hover:border-l-8 hover:border-b-8",
     },
     {
       title: "Orthopedic",
@@ -52,6 +54,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:-translate-x-3 hover:translate-y-3",
+      border: "hover:border-l-8 hover:border-b-8",
     },
   ];
 
@@ -64,6 +67,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:translate-x-3 hover:-translate-y-3",
+      border: "hover:border-r-8 hover:border-t-8",
     },
     {
       title: "Dentist",
@@ -73,6 +77,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:translate-x-3 hover:-translate-y-3",
+      border: "hover:border-r-8 hover:border-t-8",
     },
     {
       title: "Andrologists",
@@ -82,6 +87,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:-translate-x-3 hover:-translate-y-3",
+      border: "hover:border-l-8 hover:border-t-8",
     },
     {
       title: "Gynecologist",
@@ -91,6 +97,7 @@ function Service() {
       color: "bg-gray-200",
       hoverColor: "hover:bg-white",
       hoverTran: "hover:-translate-x-3 hover:-translate-y-3",
+      border: "hover:border-l-8 hover:border-t-8",
     },
   ];
 
@@ -149,7 +156,7 @@ function Service() {
           <Link
             to={box.link}
             key={index}
-            className={` p-6 rounded-3xl ${box.hoverTran} hover:${box.icon2}  transform duration-150 hover:border-r-8 hover:border-b-8 hover:border-purple-200  hover:scale-105  ${box.color} ${box.hoverColor} w-1/4 h-80`}
+            className={` p-6 rounded-3xl ${box.hoverTran} hover:${box.icon2}   transform duration-150 ${box.border} hover:border-purple-200  hover:scale-105  ${box.color} ${box.hoverColor} w-1/4 h-80`}
           >
             
               <div className="text-5xl py-6 pl-2 mb-4 text-blue-600 pr-56">{box.icon1}</div>
@@ -171,7 +178,7 @@ function Service() {
                 <Link
                   to={box.link}
                   key={index}
-                  className={`p-6 rounded-3xl ${box.hoverTran} transform duration-150 hover:border-r-8 hover:border-b-8 hover:border-purple-200 ${box.color} ${box.hoverColor} w-1/4 h-80`}
+                  className={`p-6 rounded-3xl ${box.hoverTran} ${box.border} transform duration-150  hover:border-purple-200 ${box.color} ${box.hoverColor} w-1/4 h-80`}
                 >
                   <div className="flex group">
                     <div className="text-5xl py-6 pl-2 mb-4 text-blue-600 pr-56">
