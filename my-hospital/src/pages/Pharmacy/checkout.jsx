@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPrint, FaPhoneAlt, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function Checkout() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    connst [cartItems, setCartItems] = useState([]);
+
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
