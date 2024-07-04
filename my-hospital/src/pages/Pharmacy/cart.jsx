@@ -17,9 +17,11 @@ function Cart() {
     };
 
     const handleQuantityChange = (id, delta) => {
-        setCart(cart.map(item =>
+        const updatedCart = cart.map(item =>
             item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-        ));
+        );
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
     const handleRemove = (id) => {
