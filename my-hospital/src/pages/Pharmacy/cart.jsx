@@ -7,22 +7,43 @@ function Cart() {
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
 
+
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCart(savedCart);
+        const storedItems = JSON.parse(localStorage.getItem('cart')) || [];
+        setCart(storedItems);
     }, []);
+
+    const savetolStorage = (items) => {
+        localStorage.setItem('cart', JSON.stringify(items));
+    };
+
+    const handleIncreaeQuan = (itemId) => {
+        const updatedCartItems = cart.map(item => {
+            if (item.id === itemId){
+                return {...item, quantity: item.quantity + 1};
+            }
+            return item;
+        });
+        setCart(updatedCartItems);
+        savetolStorage(updatedCartItems);
+    };
+
+    const handleDecreasQuantity = (itemId) => {
+        const updatedCartItems = cart.map(item => {
+            if(item.id === itemId && item.quantity > 1){
+                return {...item, quantity: item.quantity - 1};
+            }
+            return item;
+        });
+        setCart(updatedCartItems);
+        savetolStorage(updatedCartItems);
+    };
+
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
-    const handleQuantityChange = (id, delta) => {
-        const updatedCart = cart.map(item =>
-            item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-        );
-        setCart(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-    };
 
     const handleRemove = (id) => {
         const updatedCart = cart.filter(item => item.id !== id);
@@ -30,7 +51,13 @@ function Cart() {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
-    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const calculateTotal = () => {
+        return cart.reduce((total, item) => {
+            const price = parseFloat(item.price) || 0;
+            const quantity = parseInt(item.quantity, 10) || 0;
+            return total + (price * quantity);
+        }, 0);
+    };
 
     return (
         <>
@@ -86,16 +113,19 @@ function Cart() {
                     </thead>
                     <tbody>
                         {cart.map(item => (
+                            
                             <tr key={item.id} className="border-t">
+                                
                                 <td className="py-2"><img src={item.image} alt={item.name} className="h-16 w-16 object-cover" /></td>
                                 <td className="py-2">{item.name}</td>
                                 <td className="py-2">Rs. {item.price}</td>
                                 <td className="py-2 flex items-center">
-                                    <button className="px-2 py-1" onClick={() => handleQuantityChange(item.id, -1)}>-</button>
+                                    
+                                    <button className="px-2 py-1" onClick={() => handleDecreasQuantity(item.id)}>-</button>
                                     <span className="mx-2">{item.quantity}</span>
-                                    <button className="px-2 py-1" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+                                    <button className="px-2 py-1" onClick={() => handleIncreaeQuan(item.id)}>+</button>
                                 </td>
-                                <td className="py-2">Rs. {(item.price * item.quantity).toFixed(2)}</td>
+                                <td className="py-2">Rs. {(parseFloat(item.price) * parseInt(item.quantity, 10)).toFixed(2)}</td>
                                 <td className="py-2">
                                     <button className="text-red-600" onClick={() => handleRemove(item.id)}>Remove</button>
                                 </td>
@@ -104,7 +134,7 @@ function Cart() {
                     </tbody>
                 </table>
                 <div className="mt-4">
-                    <span className="font-bold text-2xl">Total: Rs. {totalPrice.toFixed(2)}</span>
+                    <span className="font-bold text-2xl">Total: Rs. {calculateTotal().toFixed(2)}</span>
                 </div>
                 <button
                     onClick={() => navigate('/checkout')}
