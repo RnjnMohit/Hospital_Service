@@ -5,50 +5,64 @@ import { FaPrint, FaPhoneAlt, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, Fa
 function Cart() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [cart, setCart] = useState([]);
+    const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
-
 
     useEffect(() => {
         const storedItems = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(storedItems);
+        const initialQuantity = {};
+        storedItems.forEach(item => {
+            initialQuantity[item.id] = item.quantity;
+        });
+        setQuantity(initialQuantity);
     }, []);
 
     const savetolStorage = (items) => {
         localStorage.setItem('cart', JSON.stringify(items));
     };
 
-    const handleIncreaeQuan = (itemId) => {
+    const handleIncreaseQuan = (itemId) => {
         const updatedCartItems = cart.map(item => {
-            if (item.id === itemId){
-                return {...item, quantity: item.quantity + 1};
+            if (item.id === itemId) {
+                return {...item, quantity: quantity[itemId] + 1};
             }
             return item;
         });
         setCart(updatedCartItems);
         savetolStorage(updatedCartItems);
+        setQuantity(prevQuantity => ({
+            ...prevQuantity,
+            [itemId]: prevQuantity[itemId] + 1
+        }));
     };
 
-    const handleDecreasQuantity = (itemId) => {
+    const handleDecreaseQuantity = (itemId) => {
         const updatedCartItems = cart.map(item => {
-            if(item.id === itemId && item.quantity > 1){
-                return {...item, quantity: item.quantity - 1};
+            if (item.id === itemId && quantity[itemId] > 1) {
+                return {...item, quantity: quantity[itemId] - 1};
             }
             return item;
         });
         setCart(updatedCartItems);
         savetolStorage(updatedCartItems);
+        setQuantity(prevQuantity => ({
+            ...prevQuantity,
+            [itemId]: Math.max(prevQuantity[itemId] - 1, 1) // Ensure minimum quantity is 1
+        }));
     };
-
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
-
     const handleRemove = (id) => {
         const updatedCart = cart.filter(item => item.id !== id);
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
+        const updatedQuantity = {...quantity};
+        delete updatedQuantity[id];
+        setQuantity(updatedQuantity);
     };
 
     const calculateTotal = () => {
@@ -113,19 +127,16 @@ function Cart() {
                     </thead>
                     <tbody>
                         {cart.map(item => (
-                            
                             <tr key={item.id} className="border-t">
-                                
                                 <td className="py-2"><img src={item.image} alt={item.name} className="h-16 w-16 object-cover" /></td>
                                 <td className="py-2">{item.name}</td>
                                 <td className="py-2">Rs. {item.price}</td>
                                 <td className="py-2 flex items-center">
-                                    
-                                    <button className="px-2 py-1" onClick={() => handleDecreasQuantity(item.id)}>-</button>
-                                    <span className="mx-2">{item.quantity}</span>
-                                    <button className="px-2 py-1" onClick={() => handleIncreaeQuan(item.id)}>+</button>
+                                    <button className="px-2 py-1" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                                    <span className="mx-2">{quantity[item.id]}</span>
+                                    <button className="px-2 py-1" onClick={() => handleIncreaseQuan(item.id)}>+</button>
                                 </td>
-                                <td className="py-2">Rs. {(parseFloat(item.price) * parseInt(item.quantity, 10)).toFixed(2)}</td>
+                                <td className="py-2">Rs. {(parseFloat(item.price) * parseInt(quantity[item.id], 10)).toFixed(2)}</td>
                                 <td className="py-2">
                                     <button className="text-red-600" onClick={() => handleRemove(item.id)}>Remove</button>
                                 </td>

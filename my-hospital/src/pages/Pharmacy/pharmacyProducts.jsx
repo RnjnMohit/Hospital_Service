@@ -34,6 +34,7 @@ function PharmacyProducts() {
       try{
         const response = await fetch("http://localhost:4000/getproducts");
         const data = await response.json();
+        console.log(data);
 
         const productWithImages = data.map(product => ({
           ...product,
