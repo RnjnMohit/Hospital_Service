@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaPrint, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, FaTwitter, } from "react-icons/fa";
 import img from '../../assets/bg_s.jpg';
-import { FaArrowRight } from 'react-icons/fa6';
 
 function Cardiology() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
