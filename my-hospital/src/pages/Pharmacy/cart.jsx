@@ -80,7 +80,14 @@ function Cart() {
     return (
         <>
             <div className="pb-4 pt-1 bg-gradient-to-b from-gray-300 to-white">
-                {/* <div className="mt-32 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: url('https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/bg23.jpg'), backgroundSize: 'cover', backgroundPosition: 'center' }}></div> */}
+                <div 
+                    className="mt-32 rounded-2xl h-60 ml-5 mr-5" 
+                    style={{ 
+                        backgroundImage: "url('https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/bg23.jpg')", 
+                        backgroundSize: 'cover', 
+                        backgroundPosition: 'center' 
+                    }}
+                ></div>
                 <div className="bg-gray-100 rounded-2xl shadow-lg px-6 pb-6 flex relative ml-10 mr-10 pt-16 -mt-20 text-xl">
                     <div className="flex w-2/3">
                         <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Cart <span className="font-normal"></span></h1>
@@ -136,9 +143,9 @@ function Cart() {
                                 <td className="py-2">{item.name}</td>
                                 <td className="py-2">₹{item.price}</td>
                                 <td className="py-2 flex items-center">
-                                    <button className="px-2 py-1" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                                    <button className="px-2 py-1 border" onClick={() => handleDecreaseQuantity(item.id)}>-</button>
                                     <span className="mx-2">{quantity[item.id] || 1}</span>
-                                    <button className="px-2 py-1" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
+                                    <button className="px-2 py-1 border" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
                                 </td>
                                 <td className="py-2">₹{calculateSubtotal(item).toFixed(2)}</td>
                                 <td className="py-2">

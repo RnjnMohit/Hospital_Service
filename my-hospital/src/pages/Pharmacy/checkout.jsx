@@ -3,7 +3,7 @@ import { FaPrint, FaPhoneAlt, FaEnvelope, FaShareAlt, FaFacebook, FaLinkedin, Fa
 
 function Checkout() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    connst [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);

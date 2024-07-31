@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import thermoImage from './thermo.jpg';
 import mask from '../../assets/pharmacybg_files/mask.jpg';
 import ashw from '../../assets/pharmacybg_files/ashw.jpg';
@@ -10,7 +11,6 @@ import steth from '../../assets/pharmacybg_files/stethoscope.jpg';
 import equi from '../../assets/pharmacybg_files/equipment.jpg';
 import oxi from '../../assets/pharmacybg_files/oxi.jpg';
 import { FaArrowCircleRight } from 'react-icons/fa';
-
 
 const placeholderImages = {
   'Thermometer': thermoImage,
@@ -64,10 +64,15 @@ function PharmacyProducts() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert($`{ product.name } has been added to your cart`);
+    alert(`${product.name} has been added to your cart`);
     console.log(cart);
-  }
+  };
 
+  const navigate = useNavigate();
+
+  const handleAddToCartClick = () => {
+    navigate('/cart');
+  };
 
   const carouselRef = useRef(null);
 
@@ -88,14 +93,14 @@ function PharmacyProducts() {
 
     return () => clearInterval(interval);
   }, []);
+
   return (
     <>
       <h1 className='mt-20 text-custom-blue ml-28 text-5xl font-extrabold'>Most Popular Products...</h1>
-      <div className='overflow-hidden w-full mb-7' >
-
+      <div className='overflow-hidden w-full mb-7'>
         <div
           ref={carouselRef}
-          className="flex "
+          className="flex"
           style={{ width: '100%' }}
         >
           {products.map((product, index) => (
@@ -103,24 +108,29 @@ function PharmacyProducts() {
               key={index}
               className="group w-1/5 flex-shrink-0 rounded-3xl border-x border-gray-100 px-4 mt-7"
             >
-              <img className="w-full h-96 " src={product.image} alt={product.name} />
+              <img className="w-full h-96 object-cover rounded-t-3xl" src={product.image} alt={product.name} />
               <div
-                className=' mb-10  -mt-24 group-hover:h-44 bg-slate-100 rounded-3xl group-hover:-translate-y-2 transition-all transform ease-in-out duration-500'
+                className='mb-10 -mt-24 group-hover:h-44 bg-slate-100 rounded-b-3xl group-hover:-translate-y-2 transition-all transform ease-in-out duration-500'
               >
                 <h2 className="text-3xl font-semibold text-center py-2">{product.name}</h2>
                 <p className="text-3xl font-semibold text-center py-2 text-violet-900">₹{product.price}</p>
-                <button onClick={() => addToCart(product)} className='hidden group-hover:block   mx-6 mb-2 mt-3 py-3 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500'>
-                  <div className='flex justify-center'>
-                    <FaArrowCircleRight className='py-2 pr-2 text-4xl'></FaArrowCircleRight> <span className='text-center '>Add to cart</span>
-                  </div>
+                <button
+                  onClick={() => addToCart(product)}
+                  className='hidden group-hover:block mx-6 mb-2 mt-3 py-3 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500 flex items-center justify-center'
+                >
+                  <FaArrowCircleRight className='mr-2 text-3xl' /> Add to cart
                 </button>
               </div>
             </div>
           ))}
         </div>
-
       </div>
-
+      <button
+        onClick={handleAddToCartClick}
+        className="fixed bottom-10 right-36 bg-green-600 text-white rounded-full px-8 py-4 hover:bg-green-900 transition duration-300 ease-in flex items-center"
+      >
+        <FaArrowCircleRight className="mr-2 text-2xl" /> Go to Cart
+      </button>
     </>
   );
 }

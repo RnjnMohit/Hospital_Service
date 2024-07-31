@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BasicDetails = ({ userDetails, handleDetailsChange, handleSubmit }) => {
   const today = new Date().toISOString().split('T')[0];
   const maxDate = new Date();
   maxDate.setDate(maxDate.getDate() + 3);
   const formattedMaxDate = maxDate.toISOString().split('T')[0];
+
+  const [timeSlots, setTimeSlots] = useState([]);
+  const [filteredTimeSlots, setFilteredTimeSlots] = useState([]);
+
+  useEffect(() => {
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    const allTimeSlots = [
+      "10:00 AM - 11:00 AM",
+      "11:00 AM - 12:00 PM",
+      "12:00 PM - 01:00 PM",
+      "02:00 PM - 03:00 PM",
+      "03:00 PM - 04:00 PM"
+    ];
+
+    const validTimeSlots = allTimeSlots.filter(slot => {
+      const slotHour = parseInt(slot.split(':')[0]);
+      return slotHour > currentHour || (slotHour === currentHour && now.getMinutes() < 30);
+    });
+
+    setFilteredTimeSlots(validTimeSlots);
+    setTimeSlots(validTimeSlots);
+  }, []);
 
   return (
     <div className="w-10/12 ml-32 p-5 rounded-2xl border-black border-x-2 border-y-2">
@@ -68,11 +92,11 @@ const BasicDetails = ({ userDetails, handleDetailsChange, handleSubmit }) => {
             <option disabled value="">
               Select your slot
             </option>
-            <option>10:00 AM - 11:00 AM</option>
-            <option>11:00 AM - 12:00 PM</option>
-            <option>12:00 PM - 01:00 PM</option>
-            <option>02:00 PM - 03:00 PM</option>
-            <option>03:00 PM - 04:00 PM</option>
+            {filteredTimeSlots.map((slot, index) => (
+              <option key={index} value={slot}>
+                {slot}
+              </option>
+            ))}
           </select>
         </div>
         <button
