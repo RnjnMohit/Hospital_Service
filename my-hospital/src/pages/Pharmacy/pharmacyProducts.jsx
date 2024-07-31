@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import thermoImage from './thermo.jpg';
 import mask from '../../assets/pharmacybg_files/mask.jpg';
@@ -24,14 +23,25 @@ const placeholderImages = {
   'Medigrip': grip,
   'Equipment': equi,
   'Oximeter': oxi,
-}
+};
 
 function PharmacyProducts() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+    {id:'1', name: 'Thermometer', price: '10', image: placeholderImages['Thermometer'] },
+    {id:'2', name: 'Mask', price: '5', image: placeholderImages['Mask'] },
+    {id:'3', name: 'Ashwagandha', price: '15', image: placeholderImages['Ashwagandha'] },
+    {id:'4', name: 'Dettol', price: '8', image: placeholderImages['Dettol'] },
+    {id:'5', name: 'Pregnancy News', price: '20', image: placeholderImages['Pregnancy News'] },
+    {id:'6', name: 'Sanitizer', price: '3', image: placeholderImages['Sanitizer'] },
+    {id:'7', name: 'Stethoscope', price: '30', image: placeholderImages['Stethoscope'] },
+    {id:'8', name: 'Medigrip', price: '2', image: placeholderImages['Medigrip'] },
+    {id:'9', name: 'Equipment', price: '50', image: placeholderImages['Equipment'] },
+    {id:'10', name: 'Oximeter', price: '25', image: placeholderImages['Oximeter'] },
+  ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      try{
+      try {
         const response = await fetch("http://localhost:4000/getproducts");
         const data = await response.json();
         console.log(data);
@@ -42,9 +52,9 @@ function PharmacyProducts() {
         }));
 
         setProducts(productWithImages);
-        
-      }catch(error){
-        console.error('Error fetching Products',error);
+
+      } catch (error) {
+        console.error('Error fetching Products', error);
       }
     };
     fetchProducts();
@@ -54,7 +64,7 @@ function PharmacyProducts() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${product.name} has been added to your cartt`);
+    alert(`${ product.name } has been added to your cartt`);
     console.log(cart);
   }
 
@@ -98,7 +108,7 @@ function PharmacyProducts() {
                 className=' mb-10  -mt-24 group-hover:h-44 bg-slate-100 rounded-3xl group-hover:-translate-y-2 transition-all transform ease-in-out duration-500'
               >
                 <h2 className="text-3xl font-semibold text-center py-2">{product.name}</h2>
-                <p className="text-3xl font-semibold text-center py-2 text-violet-900">{product.price}</p>
+                <p className="text-3xl font-semibold text-center py-2 text-violet-900">₹{product.price}</p>
                 <button onClick={() => addToCart(product)} className='hidden group-hover:block   mx-6 mb-2 mt-3 py-3 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500'>
                   <div className='flex justify-center'>
                     <FaArrowCircleRight className='py-2 pr-2 text-4xl'></FaArrowCircleRight> <span className='text-center '>Add to cart</span>
