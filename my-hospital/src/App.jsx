@@ -81,14 +81,14 @@ function App() {
 
 function HomePage({ title, subtitle, description }) {
   const navigate = useNavigate();
-
+// ' style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover ', backgroundPosition: 'center', minHeight: '100vh'
   return (
     <>
-      <div className='relative' style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+      <div className='relative' style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',  height: '100vh '}}>
         <div className="absolute backdrop-blur-lg bg-white/40 bottom-20 h-3/6 w-3/6 ml-16 rounded-3xl flex z-20">
           <div className="h-56 w-full mt-4 ml-8">
-            <h1 className="text-5xl font-semibold mt-4 ml-12 transition-opacity duration-1000 ease-in-out">{title}</h1>
-            <p className="text-6xl font-bold ml-12 transition-opacity duration-1000 ease-in-out">{subtitle}</p>
+            <h1 className="text-xl lg:tex-5xl font-semibold mt-4 ml-12 transition-opacity duration-1000 ease-in-out">{title}</h1>
+            <p className="text-xl lg:text-6xl font-bold ml-12 transition-opacity duration-1000 ease-in-out">{subtitle}</p>
             <p className="text-xl ml-12 mt-6 transition-opacity duration-1000 ease-in-out">{description}</p>
           </div>
           <button onClick={() => navigate('/appointments')} className="group absolute bottom-4 left-16 bg-white border-2 border-custom-blue rounded-full flex items-center hover:bg-custom-blue hover:text-white hover:ease-in duration-500 p-3">
@@ -97,6 +97,7 @@ function HomePage({ title, subtitle, description }) {
           </button>
         </div>
       </div>
+
       <InfoBoxes />
       <Home />
     </>

@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className='fixed top-0 left-0 right-0 flex justify-between items-center p-6 bg-transparent text-blue-950 font-bold z-10'>
+      <nav className='fixed top-0 left-0 right-0 flex flex-wrap sm:overflow-x-hidden   justify-between items-center p-6 bg-transparent text-blue-950 font-bold z-10'>
         <div className='flex space-x-6 text-xl'>
           <Link to="/" className='cursor-pointer hover:scale-105 ease-in-out duration-300'>Home</Link>
           <Link to="/service" className='cursor-pointer hover:scale-105 ease-in-out duration-300'>Services</Link>

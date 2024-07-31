@@ -110,7 +110,7 @@ function Service() {
   return (
     <div>
       <div className="pb-4 pt-1 bg-gradient-to-b from-gray-300 to-white">
-        <div className=" mt-32 rounded-2xl h-60 ml-5 mr-5" style={{ backgroundImage: `url('https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/bg23.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className=" mt-32 rounded-2xl h-60 ml-5 mr-5 bg-[url('https://themes.hibootstrap.com/hospa/wp-content/uploads/2024/04/bg23.jpg')]" style={{  backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className="bg-gray-100 rounded-2xl shadow-lg px-6 pb-6 flex relative ml-10 mr-10 pt-16 -mt-20 text-xl">
           <div className="flex w-2/3">
             <h1 className="text-5xl font-bold text-gray-900 pt-5 pl-5 h-fit">Services <span className="font-normal"></span></h1>
@@ -147,16 +147,16 @@ function Service() {
           </div>
         </div>
       </div>
-      <div className='text animate-bounce  transform-gpu flex my-16 text-5xl font-extrabold w-full justify-center'>
+      <div className='text animate-bounce  transform-gpu flex my-16 text-xl lg:text-5xl font-semibold lg:font-extrabold w-full justify-center'>
         <span className='pr-4 '>Always Available For Your Service </span>
         <IoMdHappy className='text-6xl' />
       </div>
-      <div className="flex p-4 my-4 mx-20 space-x-6 ">
+      <div className="flex  p-4 my-4 mx-20 space-x-6 ">
         {boxes.map((box, index) => (
           <Link
             to={box.link}
             key={index}
-            className={` p-6 rounded-3xl ${box.hoverTran} hover:${box.icon2}   transform duration-150 ${box.border} hover:border-purple-200  hover:scale-105  ${box.color} ${box.hoverColor} w-1/4 h-80`}
+            className={` p-6 rounded-3xl ${box.hoverTran} hover:${box.icon2}   transform duration-150 ${box.border} hover:border-purple-200  hover:scale-105  ${box.color} ${box.hoverColor} w-1/4   h-80`}
           >
             
               <div className="text-5xl py-6 pl-2 mb-4 text-blue-600 pr-56">{box.icon1}</div>

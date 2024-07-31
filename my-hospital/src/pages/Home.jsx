@@ -49,11 +49,11 @@ function Home() {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex p-7 justify-evenly space-x-1">
+        <div className="flex flex-wrap p-7 justify-evenly space-x-4">
           {box.map((box, index) => (
             <div
               key={index}
-              className={`p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${box.color} ${box.hoverColor} w-1/4`}
+              className={`p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${box.color} ${box.hoverColor} w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-4 `}
             >
               <h2 className="text-3xl font-semibold  text-white">{box.title1}</h2>
               <h2 className="text-3xl font-extrabold mb-2 text-white">{box.title2}</h2>
