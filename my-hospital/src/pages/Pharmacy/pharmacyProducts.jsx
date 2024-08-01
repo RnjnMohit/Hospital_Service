@@ -10,7 +10,7 @@ import grip from '../../assets/pharmacybg_files/medigrip.jpg';
 import steth from '../../assets/pharmacybg_files/stethoscope.jpg';
 import equi from '../../assets/pharmacybg_files/equipment.jpg';
 import oxi from '../../assets/pharmacybg_files/oxi.jpg';
-import { FaArrowCircleRight } from 'react-icons/fa';
+import { FaArrowCircleRight, FaShoppingCart } from 'react-icons/fa';
 
 const placeholderImages = {
   'Thermometer': thermoImage,
@@ -116,9 +116,9 @@ function PharmacyProducts() {
                 <p className="text-3xl font-semibold text-center py-2 text-violet-900">₹{product.price}</p>
                 <button
                   onClick={() => addToCart(product)}
-                  className='hidden group-hover:block mx-6 mb-2 mt-3 py-3 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500 flex items-center justify-center'
+                  className='hidden group-hover:flex  m-auto mt-5 h-1/4 text-2xl bg-violet-200 w-5/6 rounded-2xl hover:bg-violet-400 transform duration-500  items-center justify-center'
                 >
-                  <FaArrowCircleRight className='mr-2 text-3xl' /> Add to cart
+                  <FaArrowCircleRight className='mr-2 text-3xl items-center' /> Add to cart
                 </button>
               </div>
             </div>
@@ -127,9 +127,9 @@ function PharmacyProducts() {
       </div>
       <button
         onClick={handleAddToCartClick}
-        className="fixed bottom-10 right-36 bg-green-600 text-white rounded-full px-8 py-4 hover:bg-green-900 transition duration-300 ease-in flex items-center"
+        className="m-auto bg-green-600 text-white rounded-full px-8 py-4 hover:bg-green-900 transition duration-300 ease-in flex items-center"
       >
-        <FaArrowCircleRight className="mr-2 text-2xl" /> Go to Cart
+        <FaShoppingCart className="mr-2 text-2xl" /> Go to Cart
       </button>
     </>
   );
